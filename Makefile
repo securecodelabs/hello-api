@@ -4,8 +4,6 @@ GO_VERSION :=1.18
  
 setup: install-go init-go
 
-build: go build -o api cmd/main.go
-
 #TODO add MacOS support
 install-go:
   wget "https://golang.org/dl/go$(GO_VERSION).linux-amd64.tar.gz"
@@ -15,3 +13,6 @@ install-go:
 init-go:
   echo 'export PATH=$$PATH:/usr/local/go/bin' >> $${HOME}/.bashrc
   echo 'export PATH=$$PATH:$${HOME}/go/bin' >> $${HOME}/.bashrc
+
+build:
+  go build -o api cmd/main.go
